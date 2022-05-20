@@ -1,0 +1,21 @@
+------------VSFTPD---------
+
+------------instalation----
+il faut d'abord se connecter en tant que super utilisateur (root)
+puis à l'aide du su exécuter la commande suivantes pour installer VSFTPD:
+> apt-get install vsftpd
+
+verifions le status eu tapons :service vsftpd status 
+
+------------configuration------
+La configuration de VsFTPd est centralisée dans un seul et même fichier
+ /etc/vsftpd.conf
+ tapez donc : /etc/vsftpd.conf
+ puis procédons à quelque modification :
+- retirer le "#" du 31ème ligne , du 99 , du 100 eme qui est
+ 122 eme ,123 eme ,125 eme ,131 eme et enfin le 157 eme et 158 eme 
+ affin pouvoir les exécuter
+ il faut aussi apres cela exécuter : /usr/sbin/adduser ibra et /etc/vsftpd.chroot_list
+ apres il faut redémarrer en tapons: systemctl restart vsftpd)
+ puis passé à la modification du reseaux de l'ordinateur virtuel en passant de réseau interne à NAT
+ enfin tapez : /etc/resolv.conf) pour la configuration des adresses ip.

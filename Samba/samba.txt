@@ -1,0 +1,25 @@
+------------Samba----------
+------------instalation----
+il faut d'abord se connecter en tant que super utilisateur (root)
+puis à l'aide du su exécuter la commande suivantes pour installer samba :
+> apt -get install samba 
+
+------------configuration---------- 
+pour la configuration il nous faut un dossier ; qu'on vas créer dans le "home" 
+en exécutons : mkdir nom_dossier 
+puis il faut changer le droit du dossier avec la commande :chmod 777 nom_dossier
+ensuite il nous faut un utilisateur , pour ça tapez : useradd nom_user
+de suite la commande : smbpasswd -a nom_user
+
+tapez : nano /etc/samba/smb.conf  pour enfin configurer pour 
+ ensuite y entrer et ecrire : 
+	[nom_dossier]
+	path - /home/nom_dossier
+	valid users = nom_user
+	browseable = yes
+	writeable = yes
+
+ redémarrer en tapons : /etc/init.d/samba restart
+ il ne reste plus que la configuration de l'ordinateur local , il faut donc entrer dans connexion Network
+ puis dans ethernet et enfin y entrer les adresses du serveur
+
