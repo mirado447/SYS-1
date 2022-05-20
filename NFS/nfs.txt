@@ -1,0 +1,38 @@
+ ---------les etapes--------
+-Configuration de l'adresse IP et le ping entre les deux serveurs
+-instalation pour serveur
+-instalation pour client
+
+---Attribution de noms Clt_ NFS et Srv_NFS
+  Configuration IP: 
+	clien : Clt_Srv: 10.0.0.102/24
+	serveur: Srv_NFS: 10.0.0.101.250/24
+
+---pour l'instalation sur le serveur NFS
+
+exécuter: apt-get install  nfs-kernel server nfs-common
+puis il faut créez des dossiers a partager : /home/user/share_data_ro/ et /home/use/share_data_rw
+il faut ensuit les ajouter dans le fichiers /etc/exports/ :
+	/home/user/share_data_ro 10.0.0.102 (ro)
+	/home/use/share_data_rw 10.0.0.101 (rw)
+
+taper la commande en dessou pour redémarrer le service NFS:
+	/etc/init.d/nfs-kernel-server restart
+
+
+---pour instalation sur le client Clt_NFS
+
+ exécuter: apt-get install nfs-common (ce qui permet de se connecter)
+ puis créer deux dossiers pour le point de montage 
+	/home/user/nfs_share_data_ro
+	/home/usenfs_share_data_rw
+
+ensuit procédé au montage des deux dossiers partagés dans les dossiers locaux en 
+tapons les commandes suivantes :
+mount -t nfs 10.0.0.102 : /home/user/share_data_ro /home/user/nfs_share_data_ro
+mount -t nfs 10.0.0.101 : /home/user/share_data_ro /home/usenfs_share_data_rw
+
+
+
+ 
+  
