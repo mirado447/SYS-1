@@ -1,0 +1,23 @@
+---------NGINX---------------
+
+il faut d'abord se connecter en tant que super utilisateur (root)
+puis à l'aide du su exécuter la commande suivantes pour installer NGINX :
+(apt-get install nginx -y)
+ensuit pour verifier si l'instalation c'est bien passé exécuter la commande : nginx -v
+(verifie la version installé)
+
+on va creer un dossier dans le www du nginx (mkdir /var/www/nom du domaine de lasite) 
+ce dossier va nous permettre de stocker les fichier de notre site qui est notre racine
+la commande : chown -R www-data:www-data /var/www/nom du site/ nous permet de déterminer 
+la propriéte du dossier utilisateur .
+puis apppliquer les droits en tapons : chmod 755 /var/www/nom du site/
+ensuite dans (www/nom du site) on doit créer un dossier index.html pour la "racine" en 
+tapons : nano /var/www/nom du site/index.html 
+
+-----configuration-------
+création du fichier de configuration (nano /etc/nginx/sites-available/appellation du site):
+
+mettre la configuration permanente (ln -s /etc/nginx/site-available/nom du site /etc/nginx/sites-enabled/nom du site)
+pour verifier la configuration du nginx on tape : nginx -t puis enfin on passe au redémarrage.
+ :systemctl restart nginx .
+	
