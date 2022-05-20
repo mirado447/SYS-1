@@ -1,0 +1,26 @@
+------------------APACHE---------------
+Affin de procédé à l'instalation ,il nous faut d'abord :
+-VM linux 
+-accés à User et root
+-connexion internet
+
+------- les etapes-------------
+-passé de user à super utilisateur root
+-instalation
+-configuration
+-tester
+
+--------instalation---------------
+avant tout il faut se connecter en tant que super utilisateur, 
+instalation du serveure entré la ligne de commande :
+> apt-get install apache2 (instalation du package)
+puis on peut verifier le status en tapons : /etc/init.d/apache2 status 
+pour savoir si l'instalation c'est bien passé , il doit y avoir un dossier nommé 
+(www) dans (var)
+
+------------Ensuit pour la configuration :
+il faut exécuter la commande : cd /var/etc/html/ , apres exécution affiche en tapons la 
+commande (ls) , ce qui affiche ensuit un fichier html (index.html)
+
+----------tester------
+modifiions l'index.html en exécutons :nano index.html pour le teste de notre serveur
